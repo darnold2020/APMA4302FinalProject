@@ -60,10 +60,7 @@ def plot_solution(x, y, u):
     fig2 = plt.figure()
     fig.set_figwidth(fig.get_figwidth() * 1)
     axes = fig2.add_subplot(1,1,1)
-    dPsi_ser = numpy.loadtxt(os.path.join(path, "dPsi_over_steps_serial.txt"))
-    num_steps_ser = dPsi_ser.shape[0]
-    plot = axes.plot(numpy.linspace(1, num_steps_ser+1, num_steps_ser), dPsi_ser)
-    dPsi_par = numpy.loadtxt(os.path.join(path, "dPsi_over_steps_parallel.txt"))
+    dPsi_par = numpy.loadtxt(os.path.join(path, "dPsi_over_steps.txt"))
     num_steps_par = dPsi_par.shape[0]
     plot = axes.plot(numpy.linspace(1, num_steps_par+1, num_steps_par), dPsi_par)
     num_procs = len(glob.glob(os.path.join(path, "G-S_row_nonlinear_*_local.txt")))

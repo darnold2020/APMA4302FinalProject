@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
     MPI_Comm_size(MPI_COMM_WORLD, &num_procs);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 
-    N = 50;
+    N = 100;
     tolerance = 1e-8;
     dX = 1. / ((double) (N + 1.));
 
@@ -105,7 +105,7 @@ int main(int argc, char *argv[])
         }
     }
 
-    string conv_name = "dPsi_over_steps_serial.txt";
+    string conv_name = "dPsi_over_steps.txt";
     ofstream fp2(conv_name);
 
     //begin Picard iteration

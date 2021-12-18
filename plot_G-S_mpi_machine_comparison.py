@@ -27,9 +27,9 @@ def load_data(path):
     print("Grids: N = %s, rank_N = %s" % (N, rank_N))
     # data = numpy.array(data)
     # print(data.shape)
-    print(data[0].shape[0])
-    print(data[0].shape[1])
-    print(data[0])
+    # print(data[0].shape[0])
+    # print(data[0].shape[1])
+    # print(data[0])
     # assert(N == rank_N.sum())
     
     # Create data arrays
@@ -93,24 +93,11 @@ def plot_solution(x, y, u, u_alfven):
     axes.set_xlabel("R Coordinate")
     axes.set_ylabel("Z Coordinate")
 
-    fig2 = plt.figure()
-    fig2.set_figwidth(fig.get_figwidth() * 1)
-    axes = fig2.add_subplot(1,1,1)
-    dPsi_ser = numpy.loadtxt(os.path.join(path, "dPsi_over_steps_serial.txt"))
-    num_steps_ser = dPsi_ser.shape[0]
-    plot = axes.plot(numpy.linspace(1, num_steps_ser+1, num_steps_ser), dPsi_ser)
-    dPsi_par = numpy.loadtxt(os.path.join(path, "dPsi_over_steps_parallel.txt"))
-    num_steps_par = dPsi_par.shape[0]
-    plot = axes.plot(numpy.linspace(1, num_steps_par+1, num_steps_par), dPsi_par)
-    axes.set_title("Change in $\psi$ With Picard Cycle Count (Parallel: 6 Processes)")
-    axes.set_xlabel("Cycle Number")
-    axes.set_ylabel("d$\psi$")
-
     fig3 = plt.figure()
     fig3.set_figwidth(fig.get_figwidth() * 1)
     axes = fig3.add_subplot(1,1,1)
     plot3 = axes.contourf(x, y, (u - u_alfven), 20, cmap = 'RdBu_r')
-    fig.colorbar(plot3)
+    # fig.colorbar(plot3)
     axes.set_title('Difference Between Solutions on Different Machines (Zero Everywhere)')
     axes.set_xlabel("R Coordinate")
     axes.set_ylabel("Z Coordinate")

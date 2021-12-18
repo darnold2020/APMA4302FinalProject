@@ -9,6 +9,8 @@ import math
 #This script plots the scalability analysis for a personal computer used in Section V. D
 #The plot for scalability on Alfven was done using the same script with a few labels changed
 #Only this script is provided since the two are essentially the same
+#This script also requires individual runs at each process number between 1 and the maximum
+#number of processes one wishes to consider
 
 def load_data(path):
 
